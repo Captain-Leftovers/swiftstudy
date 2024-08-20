@@ -12,6 +12,7 @@
 		<div class="text-2xl font-semibold">
 			<a href="/">SwiftStudy</a>
 		</div>
+
 	</nav>
 </header>
 <main class="flex grow flex-col rounded-xl bg-zinc-300 p-4 pb-2 pt-8 sm:py-10">
@@ -21,7 +22,7 @@
 			<p class="">{date[1]}</p>
 			<p class="">{date[0]}</p>
 		</div>
-		<div class="absolute bottom-2 right-0 ml-auto">
+		<div class="absolute bottom-2 right-2  sm:right-0 ml-auto">
 			<p class="vertical-rl">{verticalText}</p>
 		</div>
 	</section>
