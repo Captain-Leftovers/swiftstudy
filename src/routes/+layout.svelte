@@ -17,14 +17,14 @@
 		</div>
 	</nav>
 </header>
-<main class="flex grow flex-col rounded-xl bg-zinc-300 p-4 py-8">
+<main class="flex grow flex-col rounded-xl bg-zinc-300 p-4 pb-2 pt-8 sm:py-10">
 	<slot></slot>
-	<section class="mt-auto font-mono font-normal tracking-widest flex">
-		<div class=" flex justify-end flex-col">
+	<section class="relative mt-auto flex font-mono font-normal tracking-widest">
+		<div class=" flex flex-col justify-end">
 			<p class="">{date[1]}</p>
 			<p class="">{date[0]}</p>
 		</div>
-		<div class="ml-auto ">
+		<div class="absolute bottom-2 right-0 ml-auto">
 			<p class="vertical-rl">{verticalText}</p>
 		</div>
 	</section>

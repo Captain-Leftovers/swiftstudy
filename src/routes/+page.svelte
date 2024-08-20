@@ -21,7 +21,7 @@
 	}
 </script>
 
-<section class="flex flex-col gap-8">
+<section class="flex flex-col gap-8 bg-blue-300">
 	<div class="h-1 min-h-10 items-center text-center">
 		{#if pickedTopic}
 			<div
@@ -32,11 +32,11 @@
 				<TopicCard isPicked topic={pickedTopic} />
 			</div>
 		{:else}
-			<h1 class="text-4xl animate-fadeIn">Pick a Topic</h1>
+			<h1 class="animate-fadeIn text-4xl">Pick a Topic</h1>
 		{/if}
 	</div>
 	<div class="flex gap-8">
-		<div class="flex w-max min-w-48 lg:flex-col gap-2 transition-all">
+		<div class="flex w-max min-w-48 gap-2 transition-all lg:flex-col">
 			{#each topics as topic, i (topic.id)}
 				{#if pickedTopic?.id != topic.id}
 					<div class="h-fit w-fit" in:receive={{ key: topic.id }} out:send={{ key: topic.id }}>

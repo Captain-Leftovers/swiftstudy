@@ -53,7 +53,7 @@
 		class="{getConsecutiveColor(index)} w-fit rounded-lg p-2 transition-all hover:scale-105"
 	>
 		<div class=" {addClass} ">
-			<h2 class="text-2xl">{topic.name}</h2>
+			<h2 class="text-lg sm:text-2xl">{topic.name}</h2>
 		</div>
 	</button>
 </section>
