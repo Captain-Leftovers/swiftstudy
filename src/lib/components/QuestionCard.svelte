@@ -25,7 +25,7 @@
 
 {#if questions.length > 0}
 	<section
-		class="absolute left-[50%] top-[50%] flex aspect-square -translate-x-1/2 -translate-y-1/2 items-start"
+		class="absolute {isFlipped ? "left-[calc(50%-7.5rem)]" : "left-[50%]"} transition-all  sm:left-[50%] top-[50%] flex -translate-x-1/2 -translate-y-1/2 items-start outline"
 	>
 		<section class="card-section">
 			<div class="card {isFlipped ? 'rotate-card' : ''}">
@@ -141,6 +141,7 @@
 		height: 100%;
 		justify-content: center;
 		width: 100%;
+      
 	}
 
 	.card {

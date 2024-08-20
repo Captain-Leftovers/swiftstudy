@@ -36,7 +36,7 @@
 		{/if}
 	</div>
 	<div class="flex gap-8">
-		<div class="flex w-max min-w-48 flex-col gap-2">
+		<div class="flex w-max min-w-48 lg:flex-col gap-2 transition-all">
 			{#each topics as topic, i (topic.id)}
 				{#if pickedTopic?.id != topic.id}
 					<div class="h-fit w-fit" in:receive={{ key: topic.id }} out:send={{ key: topic.id }}>
