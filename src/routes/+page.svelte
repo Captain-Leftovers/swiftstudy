@@ -19,8 +19,8 @@
 			return;
 		}
 	}
+// TODO : Will test flip animation
 </script>
-
 <section class="flex flex-col gap-8">
 	<div class="h-1 min-h-10 items-center text-center">
 		{#if pickedTopic}
