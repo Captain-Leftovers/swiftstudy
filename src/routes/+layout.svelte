@@ -12,9 +12,6 @@
 		<div class="text-2xl font-semibold">
 			<a href="/">SwiftStudy</a>
 		</div>
-		<div class="">
-			<a href="/">Home</a>
-		</div>
 	</nav>
 </header>
 <main class="flex grow flex-col rounded-xl bg-zinc-300 p-4 pb-2 pt-8 sm:py-10">
