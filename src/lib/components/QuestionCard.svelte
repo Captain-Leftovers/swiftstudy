@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Flashcard } from '$lib/types';
 	import { icons } from '$lib/assets/svg-pack';
+	
 
 	let isFlipped = false;
 	let qIndex: number = 0;
@@ -11,10 +12,8 @@
 	}
 
 	function nextQuestion() {
-		if (questions.length < 1) {
-			return;
-		}
 		turning = true;
+
 		flipCard();
 		setTimeout(() => {
 			qIndex += 1;
@@ -80,6 +79,9 @@
 		</section>
 	</section>
 {:else}
+	{#if isFlipped}
+		{flipCard()}
+	{/if}
 	<section
 		class="absolute {isFlipped
 			? 'left-[calc(50%-7.5rem)]'
@@ -101,7 +103,7 @@
 									disabled={questions.length === 0}
 									on:click={flipCard}
 									class="card-front__text-view card-front__text-view--city transition-all hover:scale-105"
-									>{questions.length === 0 ? "To Start" : "View Answer" }</button
+									>{questions.length === 0 ? 'To Start' : 'View Answer'}</button
 								>
 							</div>
 						</div>
@@ -122,11 +124,11 @@
 
 				<div class="inside-page">
 					<div class="inside-page__container flex">
-						<p class="inside-page__text grow">nothing</p>
+						<p class="inside-page__text grow">{@html icons[2]}</p>
 						<button
 							disabled={questions.length === 0}
 							on:click={nextQuestion}
-							class="inside-page__btn inside-page__btn--city">Next Question</button
+							class="inside-page__btn inside-page__btn--city animate-pulse">Pick a Topic...</button
 						>
 					</div>
 				</div>
