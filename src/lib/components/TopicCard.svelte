@@ -9,16 +9,25 @@
 	export let topic: Topic;
 	export let addClass: string = '';
 	export let index: number = 0;
-	export let isPicked:boolean = false
+	export let isPicked: boolean = false;
 	let unsubscribe: () => void;
 
-	const colors = ['bg-red-400', 'bg-teal-400', 'bg-green-500', 'bg-yellow-400', 'bg-purple-500'];
 
-	function getConsecutiveColor(index: number) {
-		if (isPicked) {
-			return "bg-yellow-400"
+	function getConsecutiveColor() {
+		if (topic.id === '1') {
+			return 'bg-yellow-400';
+		} else if (topic.id === '2') {
+			return 'bg-blue-400';
+		} else if (topic.id === '3') {
+			return 'bg-red-400';
+		} else if (topic.id === '4') {
+			return 'bg-teal-400';
+		} else if (topic.id === '5') {
+			return 'bg-purple-400';
+		} else {
+			return 'bg-green-400';
 		}
-		return colors[index % colors.length];
+		
 	}
 	let cachedData: Flashcard[] = [];
 
@@ -50,7 +59,7 @@
 <section>
 	<button
 		on:click={handleTopicClick}
-		class="{getConsecutiveColor(index)} w-fit rounded-lg p-2 transition-all hover:scale-105"
+		class="{getConsecutiveColor()} w-fit rounded-lg p-2 transition-all hover:scale-105"
 	>
 		<div class=" {addClass} ">
 			<h2 class="text-lg sm:text-2xl">{topic.name}</h2>

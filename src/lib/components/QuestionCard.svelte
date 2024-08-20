@@ -11,6 +11,9 @@
 	}
 
 	function nextQuestion() {
+		if (questions.length < 1) {
+			return;
+		}
 		turning = true;
 		flipCard();
 		setTimeout(() => {
@@ -25,7 +28,9 @@
 
 {#if questions.length > 0}
 	<section
-		class="absolute {isFlipped ? "left-[calc(50%-7.5rem)]" : "left-[50%]"} transition-all  sm:left-[50%] top-[55%] flex -translate-x-1/2 -translate-y-[38%] sm:-translate-y-1/2 items-start"
+		class="absolute {isFlipped
+			? 'left-[calc(50%-7.5rem)]'
+			: 'left-[50%]'} top-[55%] flex -translate-x-1/2 -translate-y-[38%] items-start transition-all sm:left-[50%] sm:-translate-y-1/2"
 	>
 		<section class="card-section">
 			<div class="card {isFlipped ? 'rotate-card' : ''}">
@@ -68,6 +73,60 @@
 						</p>
 						<button on:click={nextQuestion} class="inside-page__btn inside-page__btn--city"
 							>Next Question</button
+						>
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+{:else}
+	<section
+		class="absolute {isFlipped
+			? 'left-[calc(50%-7.5rem)]'
+			: 'left-[50%]'} top-[55%] flex -translate-x-1/2 -translate-y-[38%] items-start transition-all sm:left-[50%] sm:-translate-y-1/2"
+	>
+		<section class="card-section">
+			<div class="card {isFlipped ? 'rotate-card' : ''}">
+				<div class="flip-card">
+					<div class="flip-card__container">
+						<div class="card-front">
+							<div class="card-front__tp card-front__tp--city">
+								{#if !turning}
+									<p class="card-front__text-price animate-fadeIn">Pick a Topic</p>
+								{/if}
+							</div>
+
+							<div class="card-front__bt">
+								<button
+									disabled={questions.length === 0}
+									on:click={flipCard}
+									class="card-front__text-view card-front__text-view--city transition-all hover:scale-105"
+									>{questions.length === 0 ? "To Start" : "View Answer" }</button
+								>
+							</div>
+						</div>
+						<div class="card-back relative flex items-center justify-center">
+							<video class="video__container" autoplay muted loop>
+								<source
+									class="video__media"
+									src="https://player.vimeo.com/external/370331493.sd.mp4?s=e90dcaba73c19e0e36f03406b47bbd6992dd6c1c&profile_id=139&oauth2_token_id=57447761"
+									type="video/mp4"
+								/>
+							</video>
+							<div class=" absolute">
+								{@html icons[0]}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="inside-page">
+					<div class="inside-page__container flex">
+						<p class="inside-page__text grow">nothing</p>
+						<button
+							disabled={questions.length === 0}
+							on:click={nextQuestion}
+							class="inside-page__btn inside-page__btn--city">Next Question</button
 						>
 					</div>
 				</div>
@@ -141,7 +200,6 @@
 		height: 100%;
 		justify-content: center;
 		width: 100%;
-      
 	}
 
 	.card {
