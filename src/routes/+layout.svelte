@@ -22,7 +22,7 @@
 			<p class="">{date[1]}</p>
 			<p class="">{date[0]}</p>
 		</div>
-		<div class="absolute bottom-2 right-2  sm:right-0 ml-auto">
+		<div class="absolute bottom-2 right-2  ml-auto">
 			<p class="vertical-rl">{verticalText}</p>
 		</div>
 	</section>
